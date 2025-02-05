@@ -1,4 +1,12 @@
 <?php
+session_start();
+
+// Verificar si el usuario está autenticado
+if (!isset($_SESSION['rut'])) {
+    header("Location: index.html"); // Redirigir a la página de inicio de sesión
+    exit();
+}
+
 $titulo = "Buscar Paciente";
 ?>
 
