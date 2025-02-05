@@ -3,7 +3,7 @@ session_start();
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['rut'])) {
-    header("Location: index.html"); // Redirigir a la página de inicio de sesión
+    header("Location: index.html"); 
     exit();
 }
 
@@ -23,6 +23,13 @@ $titulo = "Buscar Paciente";
 <body class="bg-gray-100 font-sans p-4">
 
     <div class="max-w-4xl mx-auto">
+        <!-- Mensaje de error -->
+        <?php if (isset($_GET['error'])): ?>
+            <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
+                <p>Debes iniciar sesión para acceder a esta página.</p>
+            </div>
+        <?php endif; ?>
+
         <!-- Cuadro de búsqueda -->
         <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
             <h3 class="text-xl font-semibold mb-2">Buscar Usuario</h3>
